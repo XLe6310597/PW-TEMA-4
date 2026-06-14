@@ -1,0 +1,59 @@
+<!-- SECCIÓN HERO -->
+<header class="hero">
+  <div class="hero-overlay">
+    <div class="hero-container container">
+      <h1 class="animate-up">
+        {{ heroContent.titulo }} <br>
+        <span class="highlight">{{ heroContent.resaltado }}</span>
+      </h1>
+      <p class="animate-up delay-1">{{ heroContent.subtitulo }}</p>
+      <div class="hero-btns animate-up delay-2">
+        <button class="btn-primary" [routerLink]="['/membresias']">
+          {{ heroContent.textoBoton }}
+        </button>
+        <button class="btn-outline">Conoce las sucursales</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SECCIÓN BENEFICIOS -->
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">¿Por qué <span>elegirnos?</span></h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let item of beneficios" data-aos="fade-up">
+        <div class="icon-wrapper" [style.background-color]="item.colorAcento + '15'">
+          <span class="icon">{{ item.icono }}</span>
+        </div>
+        <h3>{{ item.titulo }}</h3>
+        <p>{{ item.descripcion }}</p>
+        <div class="card-border" [style.background-color]="item.colorAcento"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN PLANES CORREGIDA -->
+<section class="quick-pricing">
+  <div class="container">
+    <h2 class="section-title">ENTRENA A TU <span>MEDIDA</span></h2>
+    
+    <div class="pricing-grid">
+      <div class="plan-card" *ngFor="let plan of planesMuestra" [class.featured]="plan.popular" data-aos="zoom-in">
+        <span class="popular-tag" *ngIf="plan.popular">MÁS POPULAR</span>
+        
+        <div class="plan-header">
+          <h4>PLAN {{ plan.nombre | uppercase }}</h4>
+          <div class="price">${{ plan.precio }}<span>/mes</span></div>
+        </div>
+
+        <ul class="benefit-list">
+          <li *ngFor="let b of plan.beneficios">✓ {{ b }}</li>
+        </ul>
+
+        <button class="btn-plan" [routerLink]="['/membresias']">Seleccionar</button>
+      </div>
+    </div>
+  </div>
+</section>

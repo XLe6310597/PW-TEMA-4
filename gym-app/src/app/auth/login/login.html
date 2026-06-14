@@ -1,0 +1,42 @@
+<section class="login-container">
+  <div class="login-card">
+    <div class="logo-area">
+      <h1>GYM<span>PRO</span></h1>
+      <p>Panel de Control Académico</p>
+    </div>
+
+    <form (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="email">Correo Institucional</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="email" 
+          placeholder="ejemplo@gympro.com" 
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="pass" 
+          [(ngModel)]="pass" 
+          placeholder="••••••••" 
+          required>
+      </div>
+
+      <div class="error-msg" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <button type="submit" class="btn-submit">INICIAR SESIÓN</button>
+    </form>
+
+    <div class="login-footer">
+      <p>¿Olvidaste tu contraseña? <a href="#">Contacta a soporte</a></p>
+    </div>
+  </div>
+</section>

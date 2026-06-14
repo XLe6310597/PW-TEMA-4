@@ -1,0 +1,83 @@
+<div class="user-dashboard">
+  <!-- BARRA LATERAL IZQUIERDA -->
+  <aside class="sidebar">
+    <div class="user-info">
+      <div class="avatar">{{ atletaName.charAt(0) }}</div>
+      <h3>{{ atletaName }}</h3>
+      <span>Nivel: {{ atletaNivel }}</span>
+    </div>
+    <nav>
+      <!-- CAMBIO: "Mi Resumen" pasó a llamarse "Membresía" -->
+      <a (click)="seccionActiva = 'resumen'" [class.active]="seccionActiva === 'resumen'" style="cursor: pointer;">💳 Membresía</a>
+      <a (click)="seccionActiva = 'rutinas'" [class.active]="seccionActiva === 'rutinas'" style="cursor: pointer;">🏋️ Mis Rutinas</a>
+    </nav>
+    <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+  </aside>
+
+  <!-- CONTENIDO DINÁMICO PRINCIPAL -->
+  <main class="content">
+    
+    <!-- PESTAÑA: ESTADO DE MEMBRESÍA -->
+    <div *ngIf="seccionActiva === 'resumen'">
+      <header>
+        <h2>¡Bienvenido de nuevo, {{ atletaName }}!</h2>
+        <p>Estado actual de tu suscripción en <strong>GymPro</strong></p>
+      </header>
+
+      <!-- NUEVAS TARJETAS DE MEMBRESÍA (ELIMINADAS LAS DE CALORÍAS, DÍAS Y CITAS) -->
+      <div class="stats-grid membership-grid">
+        <div class="stat-card code-card">
+          <h4>Fecha de Inicio</h4>
+          <p class="value date-value">{{ fechaInicio }}</p>
+          <span class="status-indicator active-badge">● Plan Activo</span>
+        </div>
+        
+        <div class="stat-card code-card">
+          <h4>Próximo Vencimiento</h4>
+          <p class="value date-value expire-value">{{ fechaFin }}</p>
+          <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 10px;">
+            Recuerda realizar tu pago antes de esta fecha para evitar la suspensión de tu acceso.
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <!-- PESTAÑA: MIS RUTINAS -->
+    <div *ngIf="seccionActiva === 'rutinas'">
+      <header>
+        <h2>🏋️ Tus Planes de Entrenamiento</h2>
+        <p>Aquí tienes el material asignado de forma exclusiva para tu nivel: <strong>{{ atletaNivel }}</strong></p>
+      </header>
+
+      <div *ngIf="loading" style="color: #f0c32e; font-weight: bold; margin-bottom: 15px;">
+        Descargando tus rutinas desde el servidor de GymPro...
+      </div>
+      <div *ngIf="error" style="color: #ff4d4d; margin-bottom: 15px; font-weight: bold;">
+        ⚠️ {{ error }}
+      </div>
+
+      <div class="rutinas-container" *ngIf="!loading">
+        <div class="rutina-item-card" *ngFor="let item of rutinas">
+          <div class="rutina-header">
+            <h3>{{ item.nombre_rutina }}</h3>
+            <span class="badge-nivel">{{ atletaNivel }}</span>
+          </div>
+          <div class="rutina-body">
+            <p>⏱️ <strong>Duración:</strong> {{ item.duracion || '60 min' }}</p>
+            <p>📅 <strong>Frecuencia:</strong> {{ item.frecuencia || '4 días/semana' }}</p>
+          </div>
+          <div class="rutina-footer">
+            <a [href]="item.archivo_url" target="_blank" class="btn-download-pdf">
+              📥 Descargar Plan de Entrenamiento (PDF)
+            </a>
+          </div>
+        </div>
+
+        <div class="no-data" *ngIf="rutinas.length === 0">
+          <p>El Coach aún no ha cargado rutinas específicas para el nivel <strong>{{ atletaNivel }}</strong> esta semana.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>

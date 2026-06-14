@@ -1,0 +1,103 @@
+.plans-container {
+  padding: 100px 8%;
+  background: #fdfdfd;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header-section h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.header-section h2 span { color: var(--primary); }
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background: white;
+  padding: 50px 30px;
+  border-radius: 20px;
+  width: 320px;
+  position: relative;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+}
+
+.highlight {
+  border: 2px solid var(--primary);
+  transform: scale(1.05);
+}
+
+.highlight:hover { transform: translateY(-15px) scale(1.05); }
+
+.badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--dark);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.card-header h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.price {
+  margin: 30px 0;
+  font-weight: 900;
+}
+
+.amount { font-size: 3.5rem; letter-spacing: -2px; }
+.currency, .period { font-size: 1.2rem; color: #888; }
+
+.benefits-list {
+  list-style: none;
+  margin-bottom: 40px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.benefits-list li {
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.check { color: var(--primary); font-weight: bold; margin-right: 8px; }
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover { filter: brightness(1.2); }

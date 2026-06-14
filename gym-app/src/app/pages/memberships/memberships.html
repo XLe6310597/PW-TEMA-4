@@ -1,0 +1,37 @@
+<section class="plans-container">
+  <div class="header-section" data-aos="fade-down">
+    <h2>Nuestros <span>Planes</span></h2>
+    <p>Elige la membresía que mejor se adapte a tus objetivos fitness.</p>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card" 
+         *ngFor="let plan of planes" 
+         [class.highlight]="plan.recomendado"
+         data-aos="zoom-in">
+      
+      <div class="badge" *ngIf="plan.recomendado">MÁS POPULAR</div>
+      
+      <div class="card-header">
+        <h3>{{ plan.nombre }}</h3>
+        <p class="desc">{{ plan.descripcion }}</p>
+      </div>
+
+      <div class="price">
+        <span class="currency">$</span>
+        <span class="amount">{{ plan.precio }}</span>
+        <span class="period">/mes</span>
+      </div>
+
+      <ul class="benefits-list">
+        <li *ngFor="let b of plan.beneficios">
+          <span class="check">✓</span> {{ b }}
+        </li>
+      </ul>
+
+      <button (click)="seleccionarPlan(plan.nombre)" [style.background-color]="plan.color">
+        Elegir Plan
+      </button>
+    </div>
+  </div>
+</section>

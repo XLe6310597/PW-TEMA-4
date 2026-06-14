@@ -1,0 +1,123 @@
+<div class="admin-dashboard">
+  <aside class="sidebar">
+    <div class="admin-info">
+      <div class="avatar">C</div>
+      <h3>GymPro Admin</h3>
+      <span>Modo Coach</span>
+    </div>
+    <nav>
+      <a (click)="seccionActiva = 'subir'" [class.active]="seccionActiva === 'subir'" style="cursor: pointer;">🏋️ Subir Rutinas</a>
+      <a (click)="seccionActiva = 'usuarios'" [class.active]="seccionActiva === 'usuarios'" style="cursor: pointer;">👥 Atletas Registrados</a>
+    </nav>
+    <button (click)="logout()" class="btn-logout">Cerrar Sesión</button>
+  </aside>
+
+  <main class="content">
+    
+    <div *ngIf="seccionActiva === 'subir'">
+      <header>
+        <h2>Asignación de Entrenamientos</h2>
+        <p>Publica las rutinas oficiales organizadas por días y grupos musculares.</p>
+      </header>
+
+      <div class="form-container">
+        <h3>🚀 Publicar Nueva Rutina</h3>
+        
+        <div *ngIf="mensajeExito" class="alert success">{{ mensajeExito }}</div>
+        <div *ngIf="error" class="alert danger">{{ error }}</div>
+
+        <form (ngSubmit)="onSubirRutina()">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Día de la Semana:</label>
+              <select [(ngModel)]="dia_semana" name="dia_semana">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miércoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Nivel Destinado:</label>
+              <select [(ngModel)]="nivel" name="nivel">
+                <option value="Principiante">Principiante</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Avanzado">Avanzado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Enfoque / Grupo Muscular del Día:</label>
+            <input type="text" [(ngModel)]="nombre_rutina" name="nombre_rutina" placeholder="Ej: Pecho y Tríceps Estricto / Pierna Completa" required>
+          </div>
+
+          <div class="form-group">
+            <label>Seleccionar Documento del Plan (PDF, Imagen):</label>
+            <input type="file" (change)="onArchivoSeleccionado($event)" accept=".pdf,image/*" required class="file-input">
+            <small *ngIf="subiendoArchivo" style="color: #f0c32e; margin-top: 5px; font-weight: bold;">
+              ⏳ Subiendo archivo a Supabase... Por favor, espera.
+            </small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Duración Estimada (Opcional):</label>
+              <input type="text" [(ngModel)]="duracion" name="duracion" placeholder="Ej: 60 min / 90 min">
+            </div>
+            <div class="form-group">
+              <label>Frecuencia de Series (Opcional):</label>
+              <input type="text" [(ngModel)]="frecuencia" name="frecuencia" placeholder="Ej: 4 Series x 12 Reps">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" [disabled]="subiendoArchivo">
+            {{ subiendoArchivo ? 'Procesando Archivo...' : 'Publicar Rutina Diaria' }}
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div *ngIf="seccionActiva === 'usuarios'">
+      <header>
+        <h2>Control de Atletas Registrados</h2>
+        <p>Listado en tiempo real de las personas dadas de alta en el sistema de GymPro.</p>
+      </header>
+
+      <div *ngIf="loadingAtletas" style="color: #f0c32e; font-weight: bold;">Cargando lista de atletas...</div>
+
+      <div class="table-container" *ngIf="!loadingAtletas">
+        <table class="atletas-table">
+          <thead>
+            <tr>
+              <th>Nombre Completo</th>
+              <th>Correo Electrónico</th>
+              <th>Plan Adquirido</th>
+              <th>Nivel Físico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let atleta of listaAtletas">
+              <td class="nombre-destacado">{{ atleta.nombre_completo }}</td>
+              <td>{{ atleta.correo }}</td>
+              <td>
+                <span class="badge-plan" [ngClass]="atleta.plan?.toLowerCase()">
+                  {{ atleta.plan || 'Básico' }}
+                </span>
+              </td>
+              <td>
+                <span class="badge-nivel-tabla">{{ atleta.nivel || 'Principiante' }}</span>
+              </td>
+            </tr>
+            <tr *ngIf="listaAtletas.length === 0">
+              <td colspan="4" style="text-align: center; color: #aaa; padding: 20px;">No hay ningún atleta registrado todavía.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>

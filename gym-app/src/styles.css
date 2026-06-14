@@ -1,0 +1,43 @@
+/* Importar Montserrat para el toque Fitness */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap');
+
+:root {
+  --primary: #f0c32e; /* Color energético tipo Smart Fit */
+  --dark: #0a0a0a;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif; /* Fuente más agresiva y pro */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  /* Añadimos padding superior porque la navbar es fixed */
+  padding-top: 80px; 
+}
+
+/* Estilo global para botones de acción */
+.btn-main {
+  background: var(--primary);
+  color: var(--dark);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-main:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(240, 195, 46, 0.4);
+}

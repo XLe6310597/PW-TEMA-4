@@ -1,0 +1,163 @@
+/* src/app/auth/register/register.css */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212; /* Fondo oscuro global */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.login-card {
+  background-color: #1a1a1a; /* Tarjeta un poco más clara */
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-area {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-area h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.logo-area h1 span {
+  color: var(--primary, #f0c32e); /* Amarillo GymPro */
+}
+
+.logo-area p {
+  color: #aaaaaa;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--primary, #f0c32e);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo para el input de solo lectura del plan */
+.input-plan-readonly {
+  color: var(--primary, #f0c32e) !important;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-color: rgba(240, 195, 46, 0.3) !important;
+  background: rgba(240, 195, 46, 0.05) !important;
+  cursor: not-allowed;
+}
+
+/* Selector estilizado para el nivel */
+.select-custom {
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.select-custom option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.select-custom:focus {
+  border-color: var(--primary, #f0c32e);
+}
+
+/* Botón de envío */
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--primary, #f0c32e);
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: #d9af26;
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+}
+
+/* Alertas de error */
+.error-msg {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 15px;
+  border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+/* Footer de la tarjeta */
+.login-footer {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.login-footer p {
+  color: #888888;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: var(--primary, #f0c32e);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+  color: #d9af26;
+}

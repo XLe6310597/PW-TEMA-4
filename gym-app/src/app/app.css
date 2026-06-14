@@ -1,0 +1,75 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.85); /* Fondo traslúcido */
+  backdrop-filter: blur(15px); /* Desenfoque de fondo */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  position: fixed; /* Se queda arriba siempre */
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #121212;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.links a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  transition: var(--transition);
+  position: relative;
+  padding: 5px 0;
+}
+
+/* Estado activo y Hover */
+.links a:hover, .links a.active {
+  color: var(--primary);
+}
+
+.links a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: var(--primary);
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.links a:hover::after, .links a.active::after {
+  width: 100%;
+}
+
+.btn-login {
+  background: #121212;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background: var(--primary);
+  color: #121212;
+  transform: scale(1.05);
+}

@@ -1,0 +1,89 @@
+<section class="login-container">
+  <div class="login-card">
+    <div class="logo-area">
+      <h1>GYM<span>PRO</span></h1>
+      <p>Registro de Nuevo Atleta</p>
+    </div>
+
+    <form (ngSubmit)="onRegister()">
+      
+      <div class="form-group">
+        <label for="nombre">Nombre Completo</label>
+        <input 
+          type="text" 
+          id="nombre" 
+          name="nombre" 
+          [(ngModel)]="nombre_completo" 
+          placeholder="Ej. Juan Pérez" 
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono Celular</label>
+        <input 
+          type="tel" 
+          id="telefono" 
+          name="telefono" 
+          [(ngModel)]="telefono" 
+          placeholder="Ej. 9631234567" 
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="email" 
+          placeholder="atleta@gympro.com" 
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña de Acceso</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          [(ngModel)]="pass" 
+          placeholder="Mínimo 6 caracteres" 
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="plan">Membresía Seleccionada</label>
+        <input 
+          type="text" 
+          id="plan" 
+          name="plan" 
+          [(ngModel)]="plan_seleccionado" 
+          readonly 
+          class="input-plan-readonly">
+      </div>
+
+      <div class="form-group">
+        <label for="nivel">Tu Nivel de Condición Física</label>
+        <select 
+          id="nivel" 
+          name="nivel" 
+          [(ngModel)]="nivel" 
+          class="select-custom">
+          <option value="Principiante">Principiante</option>
+          <option value="Intermedio">Intermedio</option>
+          <option value="Avanzado">Avanzado</option>
+        </select>
+      </div>
+
+      <div class="error-msg" *ngIf="error">
+        {{ error }}
+      </div>
+
+      <button type="submit" class="btn-submit">Finalizar Inscripción</button>
+    </form>
+
+    <div class="login-footer">
+      <p>¿Ya tienes una cuenta registrada? <a routerLink="/login">Inicia Sesión</a></p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,152 @@
+.routines-public-container {
+  background: #121212; /* Fondo oscuro unificado */
+  color: #ffffff;
+  padding: 60px 40px;
+  min-height: calc(100vh - 70px); /* Ajusta al alto de tu navbar */
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ENCABEZADO */
+.routines-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+}
+
+.routines-header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 12px;
+  font-weight: 800;
+}
+
+.routines-header p {
+  color: #aaaaaa;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* REJILLA DE TARJETAS */
+.routines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* TARJETA INDIVIDUAL */
+.routine-card {
+  background: #1a1a1a;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.routine-card:hover {
+  transform: translateY(-5px);
+  border-color: #f0c32e; /* Brillo color oro al pasar el mouse */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2d2d2d;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* BADGES DE LOS DÍAS */
+.day-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+}
+.day-badge.lunes { background: #ff7675; }
+.day-badge.martes { background: #74b9ff; }
+.day-badge.miercoles { background: #55efc4; }
+.day-badge.jueves { background: #ffeaa7; }
+.day-badge.viernes { background: #a29bfe; }
+
+/* CUERPO DE LA TARJETA */
+.focus-muscle {
+  font-size: 0.95rem;
+  color: #f0c32e; /* Resalta el grupo muscular en amarillo */
+  margin: 0 0 10px 0;
+}
+
+.card-body p.description {
+  color: #bbbbbb;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0 0 15px 0;
+}
+
+/* LISTA DE EJERCICIOS */
+.exercise-preview {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #222222;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.exercise-preview li {
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.exercise-preview li:last-child {
+  margin-bottom: 0;
+}
+
+/* ACCIÓN FINAL ABAJO */
+.routines-footer-action {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #2d2d2d;
+}
+
+.routines-footer-action h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.btn-join {
+  background: #f0c32e;
+  color: #000;
+  font-weight: bold;
+  font-size: 1.05rem;
+  padding: 14px 35px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(240, 195, 46, 0.3);
+}
+
+.btn-join:hover {
+  background: #dca31a;
+  transform: scale(1.05);
+}

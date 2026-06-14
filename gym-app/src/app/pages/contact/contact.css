@@ -1,0 +1,157 @@
+.contact-public-container {
+  background: #121212; /* Fondo oscuro unificado */
+  color: #ffffff;
+  padding: 60px 40px;
+  min-height: calc(100vh - 70px);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ENCABEZADO */
+.contact-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.contact-header p {
+  color: #aaaaaa;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* DISTRIBUCIÓN EN DOS COLUMNAS */
+.contact-content-wrapper {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* TARJETA DEL COACH */
+.coach-profile-card {
+  background: #1a1a1a;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  height: fit-content;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.coach-avatar {
+  width: 80px;
+  height: 80px;
+  background: #f0c32e;
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
+}
+
+.coach-profile-card h2 {
+  font-size: 1.4rem;
+  margin: 0 0 5px 0;
+  color: #fff;
+}
+
+.coach-title {
+  color: #f0c32e;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 20px 0;
+}
+
+.divider {
+  height: 1px;
+  background: #2d2d2d;
+  margin-bottom: 20px;
+}
+
+.info-meta-list {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.info-meta-list strong {
+  color: #fff;
+}
+
+/* REJILLA DE REDES SOCIALES */
+.contact-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+/* TARJETAS DE ENLACES (ESTILO BOTÓN INTERACTIVO) */
+.method-card {
+  background: #1a1a1a;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 25px;
+  display: flex;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.method-card:hover {
+  transform: translateY(-4px);
+  border-color: #f0c32e; /* Borde color oro al hacer hover */
+  box-shadow: 0 8px 20px rgba(240, 195, 46, 0.1);
+}
+
+.method-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-details h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.method-details p {
+  margin: 0 0 15px 0;
+  color: #999;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.action-link {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #f0c32e;
+  transition: padding-left 0.2s ease;
+}
+
+.method-card:hover .action-link {
+  padding-left: 5px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .contact-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
